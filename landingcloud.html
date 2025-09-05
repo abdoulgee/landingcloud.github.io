@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELPAGE - Transforming Lives Through Hope & Financial Support</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#059669',
+                        accent: '#dc2626'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fas fa-heart text-2xl text-accent mr-3"></i>
+                    <span class="text-2xl font-bold text-gray-800">HELPAGE</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#services" class="text-gray-700 hover:text-primary transition-colors">Services</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary transition-colors">About</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-primary transition-colors">Stories</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+                    <button onclick="donateNow()" class="bg-accent text-white px-6 py-2 rounded-full hover:bg-red-700 transition-colors transform hover:scale-105">
+                        Donate Now
+                    </button>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#services" class="block py-2 text-gray-700">Services</a>
+                <a href="#about" class="block py-2 text-gray-700">About</a>
+                <a href="#testimonials" class="block py-2 text-gray-700">Stories</a>
+                <a href="#contact" class="block py-2 text-gray-700">Contact</a>
+                <button onclick="donateNow()" class="w-full bg-accent text-white py-2 rounded-md mt-2">
+                    Donate Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-primary to-blue-800 text-white pt-24 pb-16">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2 mb-6">
+                        <i class="fas fa-shield-alt text-green-300 mr-2"></i>
+                        <span class="text-sm font-medium">Trusted by 10,000+ families</span>
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+                        Transforming Lives Through <span class="text-yellow-400">Hope</span> & Support
+                    </h1>
+                    <p class="text-xl mb-8 text-blue-100">
+                        Whether you need financial assistance or want to make a difference, HELPAGE connects hearts with hope. Join thousands who've found their path to financial freedom.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <button onclick="applyForLoan()" class="bg-secondary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-700 transition-all transform hover:scale-105 shadow-xl">
+                            <i class="fas fa-money-bill-wave mr-2"></i>
+                            Get Financial Help
+                        </button>
+                        <button onclick="donateNow()" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl">
+                            <i class="fas fa-heart mr-2"></i>
+                            Make a Donation
+                        </button>
+                    </div>
+                    <div class="mt-8 flex items-center justify-center lg:justify-start space-x-6 text-sm">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-300 mr-2"></i>
+                            <span>No Hidden Fees</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-lock text-green-300 mr-2"></i>
+                            <span>100% Secure</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-green-300 mr-2"></i>
+                            <span>Quick Approval</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Happy family receiving help" 
+                         class="rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <div class="absolute -bottom-6 -left-6 bg-white text-gray-800 p-4 rounded-xl shadow-xl">
+                        <div class="flex items-center">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-users text-secondary text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-secondary">10,000+</div>
+                                <div class="text-sm text-gray-600">Families Helped</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="flex flex-col items-center">
+                    <div class="bg-primary text-white p-4 rounded-full mb-4">
+                        <i class="fas fa-award text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-800 mb-2">A+</div>
+                    <div class="text-gray-600">BBB Rating</div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-secondary text-white p-4 rounded-full mb-4">
+                        <i class="fas fa-dollar-sign text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-800 mb-2">$2M+</div>
+                    <div class="text-gray-600">Lives Changed</div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-accent text-white p-4 rounded-full mb-4">
+                        <i class="fas fa-star text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-800 mb-2">4.9/5</div>
+                    <div class="text-gray-600">Client Rating</div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-purple-600 text-white p-4 rounded-full mb-4">
+                        <i class="fas fa-clock text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-800 mb-2">24hrs</div>
+                    <div class="text-gray-600">Avg Response</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Health Assessment Tool -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    Free Financial Health Assessment
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Discover your financial wellness score and get personalized recommendations
+                </p>
+            </div>
+            
+            <div id="assessment-tool" class="bg-gradient-to-r from-blue-50 to-green-50 p-8 rounded-2xl shadow-xl">
+                <div id="question-1" class="assessment-question">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">What's your current monthly income?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <button onclick="selectAnswer('income', 'low')" class="answer-btn p-4 border-2 border-gray-300 rounded-lg hover:border-primary hover:bg-blue-50 transition-all">
+                            <i class="fas fa-wallet text-2xl text-gray-600 mb-2"></i>
+                            <div class="font-medium">Under $3,000</div>
+                        </button>
+                        <button onclick="selectAnswer('income', 'medium')" class="answer-btn p-4 border-2 border-gray-300 rounded-lg hover:border-primary hover:bg-blue-50 transition-all">
+                            <i class="fas fa-money-bill text-2xl text-gray-600 mb-2"></i>
+                            <div class="font-medium">$3,000 - $6,000</div>
+                        </button>
+                        <button onclick="selectAnswer('income', 'high')" class="answer-btn p-4 border-2 border-gray-300 rounded-lg hover:border-primary hover:bg-blue-50 transition-all">
+                            <i class="fas fa-money-bill-wave text-2xl text-gray-600 mb-2"></i>
+                            <div class="font-medium">Over $6,000</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="question-2" class="assessment-question hidden">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">How would you describe your current financial situation?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <button onclick="selectAnswer('situation', 'struggling')" class="answer-btn p-4 border-2 border-gray-300 rounded-lg hover:border-primary hover:bg-blue-50 transition-all">
+                            <i class="fas fa-exclamation-triangle text-2xl text-red-500 mb-2"></i>
+                            <div class="font-medium">Struggling to make ends meet</div>
+                        </button>
+                        <button onclick="selectAnswer('situation', 'stable')" class="answer-btn p-4 border-2 border-gray-300 rounded-lg hover:border-primary hover:bg-blue-50 transition-all">
+                            <i class="fas fa-balance-scale text-2xl text-yellow-500 mb-2"></i>
+                            <div class="font-medium">Getting by, but tight</div>
+                        </button>
+                        <button onclick="selectAnswer('situation', 'comfortable')" class="answer-btn p-4 border-2 border-gray-300 rounded-lg hover:border-primary hover:bg-blue-50 transition-all">
+                            <i class="fas fa-thumbs-up text-2xl text-green-500 mb-2"></i>
+                            <div class="font-medium">Comfortable & stable</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="question-3" class="assessment-question hidden">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">What's your primary financial goal?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <button onclick="selectAnswer('goal', 'emergency')" class="answer-btn p-4 border-2 border-gray-300 rounded-lg hover:border-primary hover:bg-blue-50 transition-all">
+                            <i class="fas fa-first-aid text-2xl text-red-500 mb-2"></i>
+                            <div class="font-medium">Handle an emergency</div>
+                        </button>
+                        <button onclick="selectAnswer('goal', 'debt')" class="answer-btn p-4 border-2 border-gray-300 rounded-lg hover:border-primary hover:bg-blue-50 transition-all">
+                            <i class="fas fa-credit-card text-2xl text-orange-500 mb-2"></i>
+                            <div class="font-medium">Pay off debt</div>
+                        </button>
+                        <button onclick="selectAnswer('goal', 'improve')" class="answer-btn p-4 border-2 border-gray-300 rounded-lg hover:border-primary hover:bg-blue-50 transition-all">
+                            <i class="fas fa-chart-line text-2xl text-green-500 mb-2"></i>
+                            <div class="font-medium">Improve credit/finances</div>
+                        </button>
+                        <button onclick="selectAnswer('goal', 'help')" class="answer-btn p-4 border-2 border-gray-300 rounded-lg hover:border-primary hover:bg-blue-50 transition-all">
+                            <i class="fas fa-heart text-2xl text-purple-500 mb-2"></i>
+                            <div class="font-medium">Help others in need</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="results" class="hidden text-center">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div id="score-display" class="mb-6">
+                            <div class="text-5xl font-bold text-primary mb-2">85</div>
+                            <div class="text-xl text-gray-600">Financial Wellness Score</div>
+                            <div class="w-full bg-gray-200 rounded-full h-3 mt-4">
+                                <div id="score-bar" class="bg-gradient-to-r from-primary to-secondary h-3 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div id="recommendation" class="text-lg text-gray-700 mb-6">
+                            Based on your assessment, we recommend our Emergency Relief Program to help stabilize your financial situation.
+                        </div>
+                        <button onclick="getPersonalizedHelp()" class="bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105">
+                            Get Your Personalized Action Plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">How We Help</h2>
+                <p class="text-xl text-gray-600">Two ways to make a difference - get help or give help</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Financial Services -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    <div class="text-center mb-8">
+                        <div class="bg-secondary text-white p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-hand-holding-usd text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Financial Assistance</h3>
+                        <p class="text-gray-600">Quick, fair loans and financial support when you need it most</p>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary mr-3"></i>
+                            <span>Emergency loans up to $5,000</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary mr-3"></i>
+                            <span>Flexible repayment terms</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary mr-3"></i>
+                            <span>No prepayment penalties</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary mr-3"></i>
+                            <span>Bad credit? We still help</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="applyForLoan()" class="w-full bg-secondary text-white py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors transform hover:scale-105">
+                        Apply for Financial Help
+                    </button>
+                </div>
+
+                <!-- Charity Services -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    <div class="text-center mb-8">
+                        <div class="bg-accent text-white p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-heart text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Make a Donation</h3>
+                        <p class="text-gray-600">Your contribution directly helps families in crisis situations</p>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-3"></i>
+                            <span>100% of donations help families</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-3"></i>
+                            <span>Tax-deductible contributions</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-3"></i>
+                            <span>Monthly impact reports</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-3"></i>
+                            <span>See exactly where your money goes</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="donateNow()" class="w-full bg-accent text-white py-4 rounded-lg font-semibold hover:bg-red-700 transition-colors transform hover:scale-105">
+                        Make a Donation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories / Testimonials -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Real Stories, Real Impact</h2>
+                <p class="text-xl text-gray-600">See how HELPAGE has transformed lives in our community</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b1e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
+                             alt="Sarah Johnson" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <div class="font-semibold text-gray-800">Sarah Johnson</div>
+                            <div class="text-sm text-gray-600">Single Mother, Atlanta</div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "When my car broke down and I couldn't get to work, HELPAGE gave me a loan the same day. They saved my job and my family's stability. Forever grateful!"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
+                             alt="Michael Chen" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <div class="font-semibold text-gray-800">Michael Chen</div>
+                            <div class="text-sm text-gray-600">Small Business Owner</div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "The emergency business loan from HELPAGE helped me keep my restaurant open during tough times. Their understanding and quick process was amazing."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
+                             alt="Maria Rodriguez" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <div class="font-semibold text-gray-800">Maria Rodriguez</div>
+                            <div class="text-sm text-gray-600">Healthcare Worker</div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "I donate monthly to HELPAGE because I see firsthand how they help families in crisis. Their transparency about impact is incredible."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Testimonial -->
+            <div class="mt-16 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <div class="relative bg-gray-100 rounded-2xl p-8 hover:shadow-xl transition-all cursor-pointer" onclick="playVideo()">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Family success story" 
+                             class="w-full h-64 object-cover rounded-xl mb-4">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="bg-primary text-white p-4 rounded-full hover:bg-blue-700 transition-colors">
+                                <i class="fas fa-play text-2xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Watch: The Johnson Family Story</h3>
+                        <p class="text-gray-600">See how HELPAGE helped this family through their toughest time</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                        About HELPAGE
+                    </h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Founded in Adel, Georgia, HELPAGE bridges the gap between those who need help and those who can provide it. We're not just a lender or charity - we're a community-driven organization that believes everyone deserves a chance at financial stability.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-8">
+                        Our unique model combines responsible lending with charitable giving, ensuring that every interaction creates positive impact. When you borrow from us, you're helping fund assistance for others. When you donate, you're building a stronger community.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">Licensed & Regulated</div>
+                                <div class="text-gray-600">Fully compliant with all state and federal requirements</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-secondary text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">Community-Focused</div>
+                                <div class="text-gray-600">Every decision is made with community impact in mind</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-accent text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">Proven Results</div>
+                                <div class="text-gray-600">98% client satisfaction rate with measurable impact</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="HELPAGE team helping community" 
+                         class="rounded-2xl shadow-2xl">
+                    <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-xl shadow-xl">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary">15+</div>
+                            <div class="text-gray-600">Years Serving</div>
+                            <div class="text-gray-600">Georgia</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Statistics -->
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Our Impact in Numbers</h2>
+                <p class="text-xl text-blue-100">Real change, measurable results</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-5xl font-bold mb-2 counter" data-target="10000">0</div>
+                    <div class="text-blue-100 text-lg">Families Helped</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold mb-2">$2.1M</div>
+                    <div class="text-blue-100 text-lg">Total Assistance Provided</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold mb-2 counter" data-target="95">0</div>
+                    <div class="text-blue-100 text-lg">% Success Rate</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold mb-2 counter" data-target="48">0</div>
+                    <div class="text-blue-100 text-lg">Hour Response Time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600">Get answers to common questions about our services</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="faq-item border border-gray-200 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-semibold text-gray-800">How quickly can I get approved for a loan?</span>
+                            <i class="fas fa-plus text-primary faq-icon"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-700">
+                        Most applications are reviewed within 24 hours. Once approved, funds can be available the same day or next business day. We understand that when you need help, time is critical.
+                    </div>
+                </div>
+                
+                <div class="faq-item border border-gray-200 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-semibold text-gray-800">What if I have bad credit?</span>
+                            <i class="fas fa-plus text-primary faq-icon"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-700">
+                        We look at the whole person, not just credit scores. We consider income, employment history, and your commitment to repayment. Many of our successful clients started with poor credit.
+                    </div>
+                </div>
+                
+                <div class="faq-item border border-gray-200 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-semibold text-gray-800">How are donations used?</span>
+                            <i class="fas fa-plus text-primary faq-icon"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-700">
+                        100% of donations go directly to helping families in need. We provide monthly reports showing exactly how your contribution made a difference, including recipient stories and impact metrics.
+                    </div>
+                </div>
+                
+                <div class="faq-item border border-gray-200 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-semibold text-gray-800">Is HELPAGE a legitimate organization?</span>
+                            <i class="fas fa-plus text-primary faq-icon"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-700">
+                        Yes! We're fully licensed, registered with the Better Business Bureau (A+ rating), and regularly audited. You can verify our credentials with the Georgia Department of Banking and Finance.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-4">Ready to Make a Change?</h2>
+            <p class="text-xl mb-8 text-blue-100">
+                Whether you need help or want to help others, your journey starts with one click
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+                <button onclick="applyForLoan()" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl">
+                    <i class="fas fa-hand-holding-usd mr-2"></i>
+                    Get Financial Help Now
+                </button>
+                <button onclick="donateNow()" class="bg-accent text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-red-700 transition-all transform hover:scale-105 shadow-xl">
+                    <i class="fas fa-heart mr-2"></i>
+                    Make a Donation
+                </button>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-blue-100 mb-4">Have questions? We're here to help 24/7</p>
+                <button onclick="contactUs()" class="text-white underline hover:text-yellow-300 transition-colors">
+                    <i class="fas fa-phone mr-2"></i>
+                    Call +1 (903) 393-1424
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2">
+                    <h2 class="text-3xl font-bold mb-8">Get in Touch</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-yellow-400">Contact Information</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-primary mr-4"></i>
+                                    <div>
+                                        <div class="font-medium">Address</div>
+                                        <div class="text-gray-300">Adel, GA</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-phone text-primary mr-4"></i>
+                                    <div>
+                                        <div class="font-medium">Phone</div>
+                                        <div class="text-gray-300">+1 (903) 393-1424</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fab fa-instagram text-primary mr-4"></i>
+                                    <div>
+                                        <div class="font-medium">Instagram</div>
+                                        <div class="text-gray-300">@helpage_official</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-yellow-400">Quick Actions</h3>
+                            <div class="space-y-3">
+                                <button onclick="emergencyHelp()" class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors">
+                                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                                    Emergency Assistance
+                                </button>
+                                <button onclick="applyForLoan()" class="w-full bg-secondary text-white py-3 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-money-bill-wave mr-2"></i>
+                                    Apply for Loan
+                                </button>
+                                <button onclick="donateNow()" class="w-full bg-accent text-white py-3 rounded-lg hover:bg-red-700 transition-colors">
+                                    <i class="fas fa-heart mr-2"></i>
+                                    Make Donation
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-yellow-400">Office Hours</h3>
+                    <div class="space-y-2 text-gray-300">
+                        <div class="flex justify-between">
+                            <span>Monday - Friday</span>
+                            <span>8AM - 8PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Saturday</span>
+                            <span>9AM - 5PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Sunday</span>
+                            <span>12PM - 5PM</span>
+                        </div>
+                        <div class="mt-4 p-4 bg-primary bg-opacity-20 rounded-lg">
+                            <div class="flex items-center text-yellow-400 mb-2">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span class="font-medium">Emergency Line</span>
+                            </div>
+                            <div class="text-sm text-gray-300">24/7 emergency assistance available</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-heart text-2xl text-accent mr-3"></i>
+                        <span class="text-2xl font-bold">HELPAGE</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Transforming lives through compassionate financial services and community support. 
+                        Every interaction creates positive impact.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Emergency Loans</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Personal Loans</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Donation Programs</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Financial Counseling</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Financial Education</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Success Stories</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Community Impact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 mt-8 text-center text-gray-400">
+                <p>&copy; 2025 HELPAGE. All rights reserved. Licensed Lender in Georgia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Assessment Tool Variables
+        let assessmentData = {};
+        let currentQuestion = 1;
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Assessment Tool Functions
+        function selectAnswer(category, value) {
+            assessmentData[category] = value;
+            
+            // Update UI to show selected state
+            const currentQuestionEl = document.getElementById(`question-${currentQuestion}`);
+            const buttons = currentQuestionEl.querySelectorAll('.answer-btn');
+            buttons.forEach(btn => btn.classList.remove('border-primary', 'bg-blue-50'));
+            event.target.closest('.answer-btn').classList.add('border-primary', 'bg-blue-50');
+            
+            // Move to next question after a short delay
+            setTimeout(() => {
+                if (currentQuestion < 3) {
+                    document.getElementById(`question-${currentQuestion}`).classList.add('hidden');
+                    currentQuestion++;
+                    document.getElementById(`question-${currentQuestion}`).classList.remove('hidden');
+                } else {
+                    showResults();
+                }
+            }, 500);
+        }
+
+        function showResults() {
+            document.getElementById(`question-${currentQuestion}`).classList.add('hidden');
+            
+            // Calculate score based on answers
+            let score = 50; // Base score
+            
+            if (assessmentData.income === 'high') score += 25;
+            else if (assessmentData.income === 'medium') score += 15;
+            else score += 5;
+            
+            if (assessmentData.situation === 'comfortable') score += 20;
+            else if (assessmentData.situation === 'stable') score += 10;
+            else score += 0;
+            
+            if (assessmentData.goal === 'help') score += 5;
+            
+            // Update display
+            document.getElementById('score-display').querySelector('.text-5xl').textContent = score;
+            document.getElementById('score-bar').style.width = score + '%';
+            
+            // Update recommendation
+            let recommendation = '';
+            if (score < 60) {
+                recommendation = "Based on your assessment, our Emergency Relief Program can provide immediate assistance to stabilize your financial situation.";
+            } else if (score < 80) {
+                recommendation = "Your financial health shows potential! Our Personal Development Loans can help you reach the next level of stability.";
+            } else {
+                recommendation = "You're in great financial shape! Consider joining our donor community to help others achieve the stability you enjoy.";
+            }
+            
+            document.getElementById('recommendation').textContent = recommendation;
+            document.getElementById('results').classList.remove('hidden');
+        }
+
+        function getPersonalizedHelp() {
+            let message = `Hi! I completed the financial assessment and got a score of ${document.getElementById('score-display').querySelector('.text-5xl').textContent}. I'd like to get my personalized action plan.`;
+            
+            // Add assessment details to message
+            message += `%0A%0AAssessment Details:%0A`;
+            message += `Income Level: ${assessmentData.income}%0A`;
+            message += `Financial Situation: ${assessmentData.situation}%0A`;
+            message += `Primary Goal: ${assessmentData.goal}`;
+            
+            window.open(`https://wa.me/19033931424?text=${message}`, '_blank');
+        }
+
+        // Main CTA Functions
+        function applyForLoan() {
+            const message = "Hi! I'm interested in applying for financial assistance through HELPAGE. Can you help me get started?";
+            window.open(`https://wa.me/19033931424?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function donateNow() {
+            const message = "Hi! I'd like to make a donation to HELPAGE to help families in need. What are my options?";
+            window.open(`https://wa.me/19033931424?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function emergencyHelp() {
+            const message = "EMERGENCY: I need immediate financial assistance. Please help!";
+            window.open(`https://wa.me/19033931424?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function contactUs() {
+            const message = "Hi! I have questions about HELPAGE services. Can someone help me?";
+            window.open(`https://wa.me/19033931424?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function playVideo() {
+            const message = "Hi! I'd like to learn more about HELPAGE success stories and how you help families.";
+            window.open(`https://wa.me/19033931424?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // FAQ Toggle Function
+        function toggleFAQ(button) {
+            const faqItem = button.closest('.faq-item');
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = button.querySelector('.faq-icon');
+            
+            answer.classList.toggle('hidden');
+            
+            if (answer.classList.contains('hidden')) {
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            } else {
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            }
+        }
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target.toLocaleString();
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Intersection Observer for counter animation
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.disconnect();
+                }
+            });
+        }, observerOptions);
+
+        // Start observing when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const statsSection = document.querySelector('.bg-primary.text-white');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add floating contact button for mobile
+        function createFloatingButton() {
+            if (window.innerWidth <= 768) {
+                const existingButton = document.getElementById('floating-contact');
+                if (!existingButton) {
+                    const floatingButton = document.createElement('div');
+                    floatingButton.id = 'floating-contact';
+                    floatingButton.innerHTML = `
+                        <button onclick="contactUs()" class="bg-secondary text-white p-4 rounded-full shadow-2xl hover:bg-green-700 transition-all transform hover:scale-110">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                        </button>
+                    `;
+                    floatingButton.className = 'fixed bottom-6 right-6 z-50';
+                    document.body.appendChild(floatingButton);
+                }
+            }
+        }
+
+        // Initialize floating button
+        window.addEventListener('load', createFloatingButton);
+        window.addEventListener('resize', createFloatingButton);
+    </script>
+</body>
+</html>
