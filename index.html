@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="https://media.istockphoto.com/id/2209016708/photo/warehouse-volunteers-and-people-with-clipboard-smile-and-review-of-donations-on-document-or.jpg?s=612x612&w=0&k=20&c=p2fmjxC-8eIdpcJMb7OHsWhUgNAawDYx7EGQgxKIo_k=" 
                          alt="Happy family receiving help" 
                          class="rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
                     <div class="absolute -bottom-6 -left-6 bg-white text-gray-800 p-4 rounded-xl shadow-xl">
@@ -327,6 +327,56 @@
             </div>
         </div>
     </section>
+
+    <!-- Career Opportunities Section -->
+<section id="careers" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Image -->
+        <div class="relative">
+          <img src="https://media.istockphoto.com/id/869257522/photo/group-shot-of-business-people-in-modern-office-hall.jpg?s=612x612&w=0&k=20&c=HLotocSHPoodSm7r_mn7pWh5-NEZDS7_GjMExxCeI_E="
+               alt="Team collaboration"
+               class="rounded-2xl shadow-2xl">
+          <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-primary">We’re Hiring!</div>
+              <div class="text-gray-600">Join our growing team</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Content -->
+        <div>
+          <h2 class="text-4xl font-bold text-gray-800 mb-6">Career Opportunities</h2>
+          <p class="text-lg text-gray-700 mb-6">
+            At HELPAGE, we believe in empowering not just communities but also our team members. 
+            If you’re passionate about making a difference, we’d love to have you join us.
+          </p>
+          
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center">
+              <i class="fas fa-check-circle text-secondary mr-3"></i>
+              <span>Community Outreach Coordinators</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check-circle text-secondary mr-3"></i>
+              <span>Loan & Support Advisors</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check-circle text-secondary mr-3"></i>
+              <span>Volunteer Managers</span>
+            </li>
+          </ul>
+          
+          <button onclick="applyForJob()" class="bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-xl">
+            <i class="fas fa-briefcase mr-2"></i> Apply Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 
     <!-- Success Stories / Testimonials -->
     <section id="testimonials" class="py-20 bg-white">
@@ -602,6 +652,7 @@
             </div>
         </div>
     </section>
+    
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-900 text-white">
@@ -832,6 +883,12 @@
             window.open(`https://wa.me/19033931424?text=${encodeURIComponent(message)}`, '_blank');
         }
 
+        function applyForJob() {
+            const message = "Hi! I'm interested in joining HELPAGE. Can you share available job opportunities?";
+            window.open(`https://wa.me/19033931424?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+
         function emergencyHelp() {
             const message = "EMERGENCY: I need immediate financial assistance. Please help!";
             window.open(`https://wa.me/19033931424?text=${encodeURIComponent(message)}`, '_blank');
@@ -941,7 +998,6 @@
             }
         }
 
-        // Initialize floating button
         window.addEventListener('load', createFloatingButton);
         window.addEventListener('resize', createFloatingButton);
     </script>
