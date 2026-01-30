@@ -66,24 +66,40 @@
 
     <!-- Contact Modal -->
     <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden modal">
-        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
-            <div class="flex justify-between items-center mb-6">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-paper-plane text-primary text-2xl"></i>
+                </div>
                 <h3 class="text-2xl font-bold text-gray-800">Contact Us</h3>
-                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <p class="text-gray-600 mb-6">Click below to send us an email directly:</p>
-            
-            <div class="space-y-4">
-                <button id="email-btn" class="w-full bg-primary text-white py-3 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
-                    <i class="fas fa-envelope text-xl mr-3"></i>
-                    Send Email
-                </button>
+                <p class="text-gray-600 mt-2">Choose how you'd like to send your email:</p>
             </div>
             
-            <p class="text-sm text-gray-500 mt-6 text-center">
-                We'll open your default email client to compose the message.
+            <div class="space-y-3">
+                <!-- Option 1: Gmail (Best for Desktop Web) -->
+                <button id="gmail-btn" class="w-full bg-red-600 text-white py-4 rounded-lg flex items-center justify-center hover:bg-red-700 transition-colors shadow-md">
+                    <i class="fab fa-google text-xl mr-3"></i>
+                    <div class="text-left">
+                        <div class="font-semibold">Continue with Gmail</div>
+                        <div class="text-xs text-red-100">Best for Desktop Browser</div>
+                    </div>
+                </button>
+
+                <!-- Option 2: Default Mail App (Best for Mobile/Outlook) -->
+                <button id="default-mail-btn" class="w-full bg-white border-2 border-gray-200 text-gray-700 py-4 rounded-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <i class="fas fa-envelope text-xl mr-3 text-primary"></i>
+                    <div class="text-left">
+                        <div class="font-semibold">Open Email App</div>
+                        <div class="text-xs text-gray-500">Best for iPhone, Android & Outlook</div>
+                    </div>
+                </button>
+            </div>
+            
+            <p class="text-xs text-gray-400 mt-6 text-center">
+                This will open a new email draft to Organizationhelpage@gmail.com
             </p>
         </div>
     </div>
@@ -895,11 +911,16 @@
             const modal = document.getElementById('contact-modal');
             modal.classList.remove('hidden');
             
-            // Set up the button
-            const emailBtn = document.getElementById('email-btn');
+            // Set up the buttons
+            const gmailBtn = document.getElementById('gmail-btn');
+            const defaultMailBtn = document.getElementById('default-mail-btn');
             
-            emailBtn.onclick = function() {
-                redirectToEmail(currentAction, currentMessage);
+            gmailBtn.onclick = function() {
+                openGmail(currentAction, currentMessage);
+            };
+
+            defaultMailBtn.onclick = function() {
+                openDefaultMail(currentAction, currentMessage);
             };
             
             document.body.style.overflow = 'hidden';
@@ -911,8 +932,8 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Redirect Functions
-        function redirectToEmail(action, customMessage = '') {
+        // Helper function to get email details
+        function getEmailDetails(action, customMessage = '') {
             const email = "Organizationhelpage@gmail.com";
             let subject = "Inquiry regarding HELPAGE";
             let body = "";
@@ -947,20 +968,38 @@
                         break;
                     case 'assessment':
                         subject = "Financial Assessment Results & Action Plan";
-                        let score = document.getElementById('score-display').querySelector('.text-5xl').textContent;
+                        // Safety check if element exists
+                        let scoreEl = document.getElementById('score-display');
+                        let score = scoreEl ? scoreEl.querySelector('.text-5xl').textContent : "N/A";
+                        
                         body = `Hi! I completed the financial assessment and got a score of ${score}. I'd like to get my personalized action plan.\n\n`;
                         
                         // Add assessment details to message
-                        body += `Assessment Details:\n`;
-                        body += `Income Level: ${assessmentData.income}\n`;
-                        body += `Financial Situation: ${assessmentData.situation}\n`;
-                        body += `Primary Goal: ${assessmentData.goal}`;
+                        if (assessmentData.income) {
+                            body += `Assessment Details:\n`;
+                            body += `Income Level: ${assessmentData.income}\n`;
+                            body += `Financial Situation: ${assessmentData.situation}\n`;
+                            body += `Primary Goal: ${assessmentData.goal}`;
+                        }
                         break;
                     default:
                         body = "Hi! I'm interested in HELPAGE services. Can you provide more information?";
                 }
             }
-            
+            return { email, subject, body };
+        }
+
+        // Option 1: Open Gmail Web (Best for Desktop)
+        function openGmail(action, customMessage) {
+            const { email, subject, body } = getEmailDetails(action, customMessage);
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.open(gmailUrl, '_blank');
+            closeModal();
+        }
+
+        // Option 2: Open Default Mail App (Best for Mobile/Outlook)
+        function openDefaultMail(action, customMessage) {
+            const { email, subject, body } = getEmailDetails(action, customMessage);
             window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             closeModal();
         }
