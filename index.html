@@ -68,27 +68,22 @@
     <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden modal">
         <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold text-gray-800">Choose Messaging App</h3>
+                <h3 class="text-2xl font-bold text-gray-800">Contact Us</h3>
                 <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
                     <i class="fas fa-times text-xl"></i>
                 </button>
             </div>
-            <p class="text-gray-600 mb-6">Select your preferred way to contact us:</p>
+            <p class="text-gray-600 mb-6">Click below to send us an email directly:</p>
             
             <div class="space-y-4">
-                <button id="whatsapp-btn" class="w-full bg-green-500 text-white py-3 rounded-lg flex items-center justify-center hover:bg-green-600 transition-colors">
-                    <i class="fab fa-whatsapp text-xl mr-3"></i>
-                    Continue with WhatsApp
-                </button>
-                
-                <button id="telegram-btn" class="w-full bg-blue-500 text-white py-3 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
-                    <i class="fab fa-telegram text-xl mr-3"></i>
-                    Continue with Telegram
+                <button id="email-btn" class="w-full bg-primary text-white py-3 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                    <i class="fas fa-envelope text-xl mr-3"></i>
+                    Send Email
                 </button>
             </div>
             
             <p class="text-sm text-gray-500 mt-6 text-center">
-                We'll redirect you to your selected messaging app to continue the conversation.
+                We'll open your default email client to compose the message.
             </p>
         </div>
     </div>
@@ -721,7 +716,7 @@
                 <p class="text-blue-100 mb-4">Have questions? We're here to help 24/7</p>
                 <button onclick="contactUs()" class="text-white underline hover:text-yellow-300 transition-colors">
                     <i class="fas fa-envelope mr-2"></i>
-                    0rganizationhelpage@gmail.com
+                    Organizationhelpage@gmail.com
                 </button>
             </div>
         </div>
@@ -762,14 +757,15 @@
                                 
                                 <div class="flex items-center">
                                     <div class="contact-card">
-                                        <a href="mailto:0rganizationhelpage@gmail.com" class="email-link">
-                                            <i class="fas fa-envelope"></i>
-                                            <div class="email-text">
-                                                <div class="label">Email</div>
-                                                <div class="address">0rganizationhelpage@gmail.com</div>
+                                        <a href="mailto:Organizationhelpage@gmail.com" class="email-link">
+                                            <i class="fas fa-envelope text-primary mr-4"></i>
+                                            <div class="email-text inline-block">
+                                                <div class="font-medium">Email</div>
+                                                <div class="text-gray-300">Organizationhelpage@gmail.com</div>
                                             </div>
+                                        </a>
+                                    </div>
                                 </div>
-                                </a>
                             </div>
                         </div>
                         
@@ -899,16 +895,11 @@
             const modal = document.getElementById('contact-modal');
             modal.classList.remove('hidden');
             
-            // Set up the buttons
-            const whatsappBtn = document.getElementById('whatsapp-btn');
-            const telegramBtn = document.getElementById('telegram-btn');
+            // Set up the button
+            const emailBtn = document.getElementById('email-btn');
             
-            whatsappBtn.onclick = function() {
-                redirectToWhatsApp(currentAction, currentMessage);
-            };
-            
-            telegramBtn.onclick = function() {
-                redirectToTelegram(currentAction, currentMessage);
+            emailBtn.onclick = function() {
+                redirectToEmail(currentAction, currentMessage);
             };
             
             document.body.style.overflow = 'hidden';
@@ -921,89 +912,56 @@
         }
 
         // Redirect Functions
-        function redirectToWhatsApp(action, customMessage = '') {
-            let message = '';
+        function redirectToEmail(action, customMessage = '') {
+            const email = "Organizationhelpage@gmail.com";
+            let subject = "Inquiry regarding HELPAGE";
+            let body = "";
             
             if (customMessage) {
-                message = customMessage;
+                body = customMessage;
             } else {
                 switch(action) {
                     case 'loan':
-                        message = "Hi! I'm interested in applying for financial assistance through HELPAGE. Can you help me get started?";
+                        subject = "Loan Application Inquiry";
+                        body = "Hi! I'm interested in applying for financial assistance through HELPAGE. Can you help me get started?";
                         break;
                     case 'donate':
-                        message = "Hi! I'd like to make a donation to HELPAGE to help families in need. What are my options?";
+                        subject = "Donation Inquiry";
+                        body = "Hi! I'd like to make a donation to HELPAGE to help families in need. What are my options?";
                         break;
                     case 'job':
-                        message = "Hi! I'm interested in joining HELPAGE. Can you share available job opportunities?";
+                        subject = "Job Application Inquiry";
+                        body = "Hi! I'm interested in joining HELPAGE. Can you share available job opportunities?";
                         break;
                     case 'emergency':
-                        message = "EMERGENCY: I need immediate financial assistance. Please help!";
+                        subject = "URGENT: Emergency Assistance Needed";
+                        body = "EMERGENCY: I need immediate financial assistance. Please help!";
                         break;
                     case 'contact':
-                        message = "Hi! I have questions about HELPAGE services. Can someone help me?";
+                        subject = "General Inquiry";
+                        body = "Hi! I have questions about HELPAGE services. Can someone help me?";
                         break;
                     case 'video':
-                        message = "Hi! I'd like to learn more about HELPAGE success stories and how you help families.";
+                        subject = "Success Stories Information";
+                        body = "Hi! I'd like to learn more about HELPAGE success stories and how you help families.";
                         break;
                     case 'assessment':
-                        message = `Hi! I completed the financial assessment and got a score of ${document.getElementById('score-display').querySelector('.text-5xl').textContent}. I'd like to get my personalized action plan.`;
+                        subject = "Financial Assessment Results & Action Plan";
+                        let score = document.getElementById('score-display').querySelector('.text-5xl').textContent;
+                        body = `Hi! I completed the financial assessment and got a score of ${score}. I'd like to get my personalized action plan.\n\n`;
                         
                         // Add assessment details to message
-                        message += `%0A%0AAssessment Details:%0A`;
-                        message += `Income Level: ${assessmentData.income}%0A`;
-                        message += `Financial Situation: ${assessmentData.situation}%0A`;
-                        message += `Primary Goal: ${assessmentData.goal}`;
+                        body += `Assessment Details:\n`;
+                        body += `Income Level: ${assessmentData.income}\n`;
+                        body += `Financial Situation: ${assessmentData.situation}\n`;
+                        body += `Primary Goal: ${assessmentData.goal}`;
                         break;
                     default:
-                        message = "Hi! I'm interested in HELPAGE services. Can you provide more information?";
+                        body = "Hi! I'm interested in HELPAGE services. Can you provide more information?";
                 }
             }
             
-            window.open(`https://wa.me/19033931424?text=${encodeURIComponent(message)}`, '_blank');
-            closeModal();
-        }
-
-        function redirectToTelegram(action, customMessage = '') {
-            let message = '';
-            
-            if (customMessage) {
-                message = customMessage;
-            } else {
-                switch(action) {
-                    case 'loan':
-                        message = "Hi! I'm interested in applying for financial assistance through HELPAGE. Can you help me get started?";
-                        break;
-                    case 'donate':
-                        message = "Hi! I'd like to make a donation to HELPAGE to help families in need. What are my options?";
-                        break;
-                    case 'job':
-                        message = "Hi! I'm interested in joining HELPAGE. Can you share available job opportunities?";
-                        break;
-                    case 'emergency':
-                        message = "EMERGENCY: I need immediate financial assistance. Please help!";
-                        break;
-                    case 'contact':
-                        message = "Hi! I have questions about HELPAGE services. Can someone help me?";
-                        break;
-                    case 'video':
-                        message = "Hi! I'd like to learn more about HELPAGE success stories and how you help families.";
-                        break;
-                    case 'assessment':
-                        message = `Hi! I completed the financial assessment and got a score of ${document.getElementById('score-display').querySelector('.text-5xl').textContent}. I'd like to get my personalized action plan.`;
-                        
-                        // Add assessment details to message
-                        message += `%0A%0AAssessment Details:%0A`;
-                        message += `Income Level: ${assessmentData.income}%0A`;
-                        message += `Financial Situation: ${assessmentData.situation}%0A`;
-                        message += `Primary Goal: ${assessmentData.goal}`;
-                        break;
-                    default:
-                        message = "Hi! I'm interested in HELPAGE services. Can you provide more information?";
-                }
-            }
-            
-            window.open(`https://t.me/Helpage001?text=${encodeURIComponent(message)}`, '_blank');
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             closeModal();
         }
 
